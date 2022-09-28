@@ -1,6 +1,6 @@
-import Header from "./components/Header";
+import Header from "./components/assets/Header";
 import { ApolloProvider, ApolloClient, InMemoryCache } from "@apollo/client";
-import Clients from "./components/Clients";
+import Clients from "./components/assets/Clients";
 
 const client = new ApolloClient({
   // Pass in URI to GraphQL project
