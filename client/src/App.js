@@ -1,6 +1,7 @@
 import Header from "./components/assets/Header";
 import { ApolloProvider, ApolloClient, InMemoryCache } from "@apollo/client";
 import Clients from "./components/assets/Clients";
+import AddClientModal from "./components/addClientModal";
 
 const cache = new InMemoryCache({
   typePolicies: {
@@ -9,17 +10,17 @@ const cache = new InMemoryCache({
         clients: {
           merge(existing, incoming) {
             return incoming;
-          }
+          },
         },
         projects: {
           merge(existing, incoming) {
             return incoming;
-          }
-        }
-      }
-    }
-  }
-})
+          },
+        },
+      },
+    },
+  },
+});
 
 const client = new ApolloClient({
   // Pass in URI to GraphQL project
@@ -33,6 +34,7 @@ function App() {
       <ApolloProvider client={client}>
         <Header />
         <div className="container">
+          <AddClientModal />
           <Clients />
         </div>
       </ApolloProvider>
